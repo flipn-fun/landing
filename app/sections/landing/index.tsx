@@ -1,10 +1,8 @@
-    import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styles from './Landing.module.css';
 import { useAccount } from '@/app/useAccount';
 
 const Landing = () => {
-   
-
     const { connect, address } = useAccount();
 
     //@ts-ignore
