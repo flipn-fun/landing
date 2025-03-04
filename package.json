@@ -1,0 +1,29 @@
+{
+  "name": "mainsite",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 4002",
+    "build": "next build",
+    "start": "next start --port 4001",
+    "lint": "next lint",
+    "deploy": "next build && wrangler pages publish .next"
+  },
+  "dependencies": {
+    "@ant-design/cssinjs": "^1.21.1",
+    "@ant-design/nextjs-registry": "^1.0.1",
+    "antd-mobile": "^5.34.0",
+    "framer-motion": "^11.13.1",
+    "next": "14.1.0",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.9",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "typescript": "^5"
+  }
+}
