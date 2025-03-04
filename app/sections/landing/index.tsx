@@ -1,10 +1,16 @@
-import { motion } from 'framer-motion';
+    import { motion } from 'framer-motion';
 import styles from './Landing.module.css';
+import { useAccount } from '@/app/useAccount';
 
 const Landing = () => {
-    const win: any = window;
+   
+
+    const { connect, address } = useAccount();
+
+    //@ts-ignore
+    const win: any = typeof window !== "undefined" ? window : {};
     const isMobile =
-        win.navigator.userAgent.includes("Mobile") ||
+        win.navigator?.userAgent?.includes("Mobile") ||
         win.innerWidth < 450;
 
     return (
@@ -44,7 +50,12 @@ const Landing = () => {
                         >
                             <p className={styles.heroDesc}>Trade and launch memecoins as easy as scrolling Tiktok. Coming soon to Solana.</p>
                         </motion.div>
-                        <button className={styles.watchButton}>Watch Now</button>
+                        <button className={styles.watchButton} onClick={() => {
+                            if (!address) {
+                                connect();
+                            }
+                        }}>Connect Wallet</button>
+                        <div className={styles.waitlist}>Connect your wallet and join the waitlist!</div>
 
                         <div className={styles.light1}>
                             <img src="/img/landing/light1.svg" alt="Light 1" />

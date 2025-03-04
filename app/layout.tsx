@@ -1,5 +1,6 @@
 "use client";
 
+import WalletConnect from "./components/WalletConnect";
 import "./globals.css";
 import Landing from "./sections/landing";
 
@@ -18,7 +19,9 @@ export default function RootLayout() {
       
       </head>
       <body>
-        <Landing />
+        <WalletConnect>
+          <Landing />
+        </WalletConnect>
       </body>
     </html>
   );
