@@ -168,6 +168,9 @@ const Landing = () => {
                 </div>
 
                 <div className={styles.footer}>
+                    <img className={styles.footerIcon} onClick={() => {
+                        window.open("https://flipndotfun.gitbook.io/flipn/648IWq7QnFXAw1nfNTlw/", '_blank')
+                    }} src="/img/landing/gitbook.svg" alt="X" />
                     <img className={styles.footerIcon} src="/img/landing/x.svg" alt="X" />
                     <img className={styles.footerIcon} src="/img/landing/telegram.svg" alt="Telegram" />
                 </div>
