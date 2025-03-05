@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function useUserAgent() {
     const [isMobile, setIsMobile] = useState(false);
+    const [innerHeight, setInnerHeight] = useState<string>('100vh');
 
     useEffect(() => {
         const checkIsMobile = () => {
@@ -9,7 +10,7 @@ export default function useUserAgent() {
                 window.navigator.userAgent.includes("Mobile") ||
                 window.innerWidth < 650;
             setIsMobile(_isMobile);
-
+            setInnerHeight(_isMobile ? window.innerHeight + 'px' : '100vh');
         };
 
         checkIsMobile();
@@ -21,6 +22,7 @@ export default function useUserAgent() {
     }, []);
 
     return {
-        isMobile
+        isMobile,
+        innerHeight,
     };
 }

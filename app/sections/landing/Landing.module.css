@@ -195,7 +195,6 @@
     flex-direction: column;
     align-items: center;
 
-
     .titleIcon {
         display: none;
     }
@@ -335,4 +334,5 @@
     font-weight: 300;
     margin-top: 5px;
     text-align: center;
+    white-space: nowrap;
 }

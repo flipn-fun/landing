@@ -6,15 +6,15 @@ import { useAccount } from '@/app/useAccount';
 import { WalletModalButton } from '@/app/libs/solana/wallet-adapter/modal';
 import useWhiteList from './useWhiteList';
 import useUserAgent from './useUserAgent';
+import { useState } from 'react';
 
 const Landing = () => {
     const { connect, address, connected, disconnect } = useAccount();
     const { isJoined, joinWhiteList } = useWhiteList({ address });
-
-    const { isMobile } = useUserAgent();
+    const { isMobile, innerHeight } = useUserAgent();
 
     return (
-        <div style={{ height: '100vh', overflow: 'auto' }}>
+        <div style={{ height: innerHeight, overflow: 'auto' }}>
             <div className={styles.container + " " + (isMobile ? styles.mobile : styles.pc)}>
                 <div className={styles.titleIcon}>
                     <img style={{ width: 86 }} src="/img/landing/logo.svg" alt="Logo" />
@@ -108,7 +108,8 @@ const Landing = () => {
                                 style={{
                                     width: '100vw',
                                     display: 'flex',
-                                    marginTop: 25
+                                    marginTop: 25,
+                                    overflow: 'hidden'
                                 }}
                             >
                                 <motion.div
