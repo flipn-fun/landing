@@ -15,6 +15,7 @@ const Landing = () => {
     const isMobile =
         win.navigator?.userAgent?.includes("Mobile") ||
         win.innerWidth < 450;
+        
 
     return (
         <div style={{ height: '100vh', overflow: 'auto' }}>

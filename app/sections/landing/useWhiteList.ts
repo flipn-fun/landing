@@ -42,10 +42,10 @@ export default function useWhiteList({ address }: { address: string | undefined 
 //   }, [address])
 
   useEffect(() => {
-    if (address && (window as any).location.href.includes('isShare=1')) {
+    if (address && typeof window !== "undefined" && (window as any).location.href.includes('isShare=1')) {
         joinWhiteList(address)
     }
-  }, [address, (window as any).location.href, isWhiteListed])
+  }, [address])
 
   return {
     isWhiteListed,
