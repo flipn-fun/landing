@@ -2,9 +2,11 @@ import { motion } from 'framer-motion';
 import styles from './Landing.module.css';
 import { useAccount } from '@/app/useAccount';
 import { WalletModalButton } from '@/app/libs/solana/wallet-adapter/modal';
+import useWhiteList from './useWhiteList';
 
 const Landing = () => {
     const { connect, address, connected, disconnect } = useAccount();
+    const { isJoined, joinWhiteList } = useWhiteList({ address });
 
     //@ts-ignore
     const win: any = typeof window !== "undefined" ? window : {};
@@ -53,7 +55,7 @@ const Landing = () => {
                         {
                             connected ? <div className={styles.connectedWrapper}>
                                 <div className={styles.connected}>
-                                    <div className={styles.connectedAddress}>{ address?.slice(0, 5) + '...' + address?.slice(-5) }</div>
+                                    <div className={styles.connectedAddress}>{address?.slice(0, 5) + '...' + address?.slice(-5)}</div>
                                     <div className={styles.connectedIcon} onClick={() => {
                                         disconnect();
                                     }}>
@@ -62,9 +64,20 @@ const Landing = () => {
                                         </svg>
                                     </div>
                                 </div>
-                                <button className={styles.followButton} onClick={() => {
-                                    window.open(`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=NWZlaG93WlNfNW4xVmxNZHdvUVo6MTpjaQ&redirect_uri=${window.location.href}&scope=tweet.read%20users.read%20follows.read%20like.read&state=state&code_challenge=challenge&code_challenge_method=plain`, '_blank');
-                                }}>Follow X and Join Waitlist</button>
+                                {
+                                    isJoined ? <div className={ styles.tipWrapper }>
+                                        <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 14.2857L12.8125 19L22 10" stroke="#C9FF5D" stroke-width="2" />
+                                            <circle cx="14.5" cy="14.5" r="14" stroke="#C9FF5D" />
+                                        </svg>
+                                        <div className={styles.followedTip}>
+                                            You’ve asked for a waitlist, Follow us on X for the latest news
+                                        </div>
+
+                                    </div> : <button className={styles.followButton} onClick={() => {
+                                        window.open(`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=NWZlaG93WlNfNW4xVmxNZHdvUVo6MTpjaQ&redirect_uri=${window.location.href + '?isShare=1'}&scope=tweet.read%20users.read%20follows.read%20like.read&state=state&code_challenge=challenge&code_challenge_method=plain`, '_blank');
+                                    }}>Follow X and Join Waitlist</button>
+                                }
                             </div> : <div className={styles.connectBtnWrapper}>
                                 <WalletModalButton
                                     style={{
