@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion';
 import styles from './Landing.module.css';
-import { useAccount } from '@/app/useAccount';
-import { WalletModalButton } from '@/app/libs/solana/wallet-adapter/modal';
 import useWhiteList from './useWhiteList';
 import useUserAgent from './useUserAgent';
 import { useEffect, useMemo, useState } from 'react';
@@ -11,7 +9,6 @@ import { useEffect, useMemo, useState } from 'react';
 
 
 const Landing = () => {
-    // const { connect, address, connected, disconnect } = useAccount();
     const queryParams = urlFormat(typeof window === 'undefined' ? '' : window.location.href)
 
     const [address, setAddress] = useState('')
