@@ -65,7 +65,7 @@ const Landing = () => {
                                 <button className={styles.followButton} onClick={() => {
                                     window.open(`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=NWZlaG93WlNfNW4xVmxNZHdvUVo6MTpjaQ&redirect_uri=${window.location.href}&scope=tweet.read%20users.read%20follows.read%20like.read&state=state&code_challenge=challenge&code_challenge_method=plain`, '_blank');
                                 }}>Follow X and Join Waitlist</button>
-                            </div> : <>
+                            </div> : <div className={styles.connectBtnWrapper}>
                                 <WalletModalButton
                                     style={{
                                         background: "#FFD700",
@@ -77,7 +77,7 @@ const Landing = () => {
                                     Connect Wallet
                                 </WalletModalButton>
                                 <div className={styles.waitlist}>Connect your wallet and join the waitlist!</div>
-                            </>
+                            </div>
                         }
 
                         <div className={styles.light1}>

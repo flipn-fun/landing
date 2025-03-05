@@ -281,6 +281,26 @@
     .light3 img {
         width: 100%;
     }
+
+    .connected {
+        width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .followButton {
+        width: 280px;
+        white-space: nowrap;
+    }
+
+    .heroSection {
+        padding-bottom: 70px;
+    }
+
+    .connectBtnWrapper {
+        width: 280px;
+        margin: 0 auto;
+    }
 }
 
 .pc {
