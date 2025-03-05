@@ -43,7 +43,7 @@ export default function useWhiteList({ address }: { address: string | undefined 
 
   useEffect(() => {
     if (address && typeof window !== "undefined" && (window as any).location.href.includes('isShare=1')) {
-        joinWhiteList(address)
+        setIsJoined(true);
     }
   }, [address])
 
