@@ -11,6 +11,12 @@
   --w3m-z-index: 9999;
 }
 
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+
+}
+
 div.adm-image-uploader {
   --cell-size: 100px;
 }
