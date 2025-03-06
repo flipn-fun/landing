@@ -27,7 +27,7 @@ const Landing = () => {
     }, [])
 
 
-    
+
     return (
         <div style={{ height: innerHeight, overflow: 'auto' }}>
             <div className={styles.container + " " + (isMobile ? styles.mobile : styles.pc)}>
@@ -71,7 +71,7 @@ const Landing = () => {
                                 <div className={styles.connected}>
                                     <input className={styles.connectedAddress} value={address} onChange={(e) => {
                                         setAddress(e.target.value)
-                                    }}/>
+                                    }} />
                                     {/* <div className={styles.connectedIcon} onClick={() => {
                                         disconnect();
                                     }}>
@@ -81,7 +81,7 @@ const Landing = () => {
                                     </div> */}
                                 </div>
                                 {
-                                    isJoined && !isError ? <div className={ styles.tipWrapper }>
+                                    isJoined && !isError ? <div className={styles.tipWrapper}>
                                         <img src="/img/landing/tip.svg" />
                                         <div className={styles.followedTip}>
                                             You’ve asked for a waitlist, Follow us on X for the latest news
@@ -94,9 +94,9 @@ const Landing = () => {
                                         window.open(`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=NWZlaG93WlNfNW4xVmxNZHdvUVo6MTpjaQ&redirect_uri=${window.location.origin + '?isShare=1&address=' + address}&scope=tweet.read%20users.read%20follows.read%20like.read&state=state&code_challenge=challenge&code_challenge_method=plain`, '_blank');
                                     }}>Enter your SOL wallet address to join the waitlist.</button>
                                 }
-                            </div> 
-                            
-                            
+                            </div>
+
+
                             // : <div className={styles.connectBtnWrapper}>
                             //     <WalletModalButton
                             //         style={{
@@ -166,31 +166,34 @@ const Landing = () => {
                 </div>
 
                 <div className={styles.footer}>
-                    <img className={styles.footerIcon} onClick={() => {
-                        window.open("https://flipndotfun.gitbook.io/flipn/648IWq7QnFXAw1nfNTlw/", '_blank')
-                    }} src="/img/landing/gitbook.svg" alt="X" />
-                    <img className={styles.footerIcon} src="/img/landing/x.svg" alt="X" />
-                    <img className={styles.footerIcon} src="/img/landing/telegram.svg" alt="Telegram" />
+                    <div className={styles.footerText}>Build on Solana</div>
+                    <div className={styles.footerIcons}>
+                        <img className={styles.footerIcon} onClick={() => {
+                            window.open("https://flipndotfun.gitbook.io/flipn/648IWq7QnFXAw1nfNTlw/", '_blank')
+                        }} src="/img/landing/gitbook.svg" alt="X" />
+                        <img className={styles.footerIcon} src="/img/landing/x.svg" alt="X" />
+                        <img className={styles.footerIcon} src="/img/landing/telegram.svg" alt="Telegram" />
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
 
-export function urlFormat(url:string) {
+export function urlFormat(url: string) {
     if (!url) {
         return {}
     }
 
     const queryString = url.split('?')[1] || '';
     const queryParams: { [key: string]: string } = {};
-    
+
     if (queryString) {
-      const pairs = queryString.split('&');
-      for (const pair of pairs) {
-        const [key, value] = pair.split('=');
-        queryParams[decodeURIComponent(key)] = decodeURIComponent(value || '');
-      }
+        const pairs = queryString.split('&');
+        for (const pair of pairs) {
+            const [key, value] = pair.split('=');
+            queryParams[decodeURIComponent(key)] = decodeURIComponent(value || '');
+        }
     }
 
     return queryParams
