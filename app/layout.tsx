@@ -1,10 +1,23 @@
 "use client";
 
+import { useEffect } from "react";
 import WalletConnect from "./components/WalletConnect";
 import "./globals.css";
 import Landing from "./sections/landing";
 
 export default function RootLayout() {
+
+  useEffect(() => {
+    document.addEventListener('dblclick', function (e) {
+      e.preventDefault(); 
+    }, { passive: false });
+
+    document.addEventListener('touchstart', function (e) {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+  }, []);
 
   return (
     <html lang="en">
@@ -16,7 +29,7 @@ export default function RootLayout() {
         />
         <link rel="manifest" href="/manifest.json" />
         <title>Fun</title>
-      
+
       </head>
       <body>
         <WalletConnect>

@@ -10,7 +10,6 @@ import { useEffect, useMemo, useState } from 'react';
 
 const Landing = () => {
     const queryParams = urlFormat(typeof window === 'undefined' ? '' : window.location.href)
-
     const [address, setAddress] = useState('')
 
     const { isJoined, joinWhiteList } = useWhiteList({ address });
@@ -18,7 +17,7 @@ const Landing = () => {
 
     const isError = useMemo(() => {
         if (!address) return true;
-        return !/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(address);
+        return !/^[1-9A-Za-z]{32,44}$/.test(address);
     }, [address])
 
     useEffect(() => {
@@ -87,14 +86,13 @@ const Landing = () => {
                                         <div className={styles.followedTip}>
                                             You’ve asked for a waitlist, Follow us on X for the latest news
                                         </div>
-
                                     </div> : <button style={{ opacity: isError ? 0.5 : 1 }} className={styles.followButton} onClick={async () => {
                                         if (isError) {
                                             return
                                         }
-                                        await joinWhiteList(address)
+                                        joinWhiteList(address)
                                         window.open(`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=NWZlaG93WlNfNW4xVmxNZHdvUVo6MTpjaQ&redirect_uri=${window.location.origin + '?isShare=1&address=' + address}&scope=tweet.read%20users.read%20follows.read%20like.read&state=state&code_challenge=challenge&code_challenge_method=plain`, '_blank');
-                                    }}>Enter your wallet address to join the waitlist.</button>
+                                    }}>Enter your SOL wallet address to join the waitlist.</button>
                                 }
                             </div> 
                             

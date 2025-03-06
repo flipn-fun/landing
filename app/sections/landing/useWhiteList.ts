@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 export default function useWhiteList({ address }: { address: string | undefined }) {
   const [isWhiteListed, setIsWhiteListed] = useState(false);
   const [isJoined, setIsJoined] = useState(false);
+  const joinList = useRef<any>({});
 
   const checkWhiteList = async (address: string) => {
     try {
@@ -26,6 +27,7 @@ export default function useWhiteList({ address }: { address: string | undefined 
       });
       const data = await response.json();
       if (data.code === 0) {
+        joinList.current[address] = true;
         setIsJoined(true);
       }
       return !!data?.data;
@@ -43,7 +45,20 @@ export default function useWhiteList({ address }: { address: string | undefined 
 
   useEffect(() => {
     if (address && typeof window !== "undefined" && (window as any).location.href.includes('isShare=1')) {
+        joinWhiteList(address).then((res: any) => { 
+            if (res) {
+                joinList.current[address] = true;
+                setIsJoined(true);
+            }
+        })
+    }
+  }, [address])
+
+  useEffect(() => {
+    if (address && joinList.current[address]) {
         setIsJoined(true);
+    } else {
+        setIsJoined(false);
     }
   }, [address])
 
