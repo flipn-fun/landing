@@ -87,11 +87,20 @@ const Landing = () => {
                                             You’ve asked for a waitlist, Follow us on X for the latest news
                                         </div>
                                     </div> : <button style={{ opacity: isError ? 0.5 : 1 }} className={styles.followButton} onClick={async () => {
-                                        if (isError) {
+                                       
+                                       if (isError) {
                                             return
                                         }
                                         joinWhiteList(address)
-                                        window.open(`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=NWZlaG93WlNfNW4xVmxNZHdvUVo6MTpjaQ&redirect_uri=${window.location.origin + '?isShare=1&address=' + address}&scope=tweet.read%20users.read%20follows.read%20like.read&state=state&code_challenge=challenge&code_challenge_method=plain`, '_blank');
+
+                                        const name = 'Memecoins are supposed to be fun MMGA - Make Memes Great Again'
+
+                                        window.open(
+                                            `https://twitter.com/intent/tweet?text=${encodeURIComponent(name)}&url=${encodeURIComponent(window.location.href)}`,
+                                            "_blank"
+                                        );
+
+
                                     }}>Enter your SOL wallet address to join the waitlist.</button>
                                 }
                             </div>
@@ -169,7 +178,7 @@ const Landing = () => {
                     <div className={styles.footerText}>Build on Solana</div>
                     <div className={styles.footerIcons}>
                         <img className={styles.footerIcon} onClick={() => {
-                            window.open("https://flipndotfun.gitbook.io/flipn/648IWq7QnFXAw1nfNTlw/", '_blank')
+                            window.open("https://docs.flipn.fun/", '_blank')
                         }} src="/img/landing/gitbook.svg" alt="X" />
                         <img className={styles.footerIcon} src="/img/landing/x.svg" alt="X" />
                         <img className={styles.footerIcon} src="/img/landing/telegram.svg" alt="Telegram" />
