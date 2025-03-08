@@ -69,7 +69,7 @@ const Landing = () => {
                         {
                             <div className={styles.connectedWrapper}>
                                 <div className={styles.connected}>
-                                    <input className={styles.connectedAddress} value={address} onChange={(e) => {
+                                    <input placeholder='Your Solana address' className={styles.connectedAddress} value={address} onChange={(e) => {
                                         setAddress(e.target.value)
                                     }} />
                                     {/* <div className={styles.connectedIcon} onClick={() => {
@@ -101,7 +101,7 @@ const Landing = () => {
                                         );
 
 
-                                    }}>Enter your SOL wallet address to join the waitlist.</button>
+                                    }}>Join Waitlist for the earliest token launches.</button>
                                 }
                             </div>
 
