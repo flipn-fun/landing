@@ -11,8 +11,9 @@
   --w3m-z-index: 9999;
 }
 
-html, body {
-  touch-action: none; 
+html,
+body {
+  touch-action: none;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -55,6 +56,11 @@ div.adm-image-uploader {
   }
 }
 
+img[src=''],
+img:not([src]) {
+  opacity: 0;
+}
+
 html,
 body {
   width: 100vw;
@@ -93,7 +99,7 @@ a {
   overflow: hidden;
 }
 
-.app-container > :first-child {
+.app-container> :first-child {
   flex: 1;
   overflow: hidden;
 }
@@ -273,10 +279,7 @@ div.adm-tab-bar-wrap {
   background-color: transparent;
 }
 
-.trans-flip.adm-modal
-  .adm-center-popup-wrap
-  .adm-center-popup-body
-  .adm-modal-content {
+.trans-flip.adm-modal .adm-center-popup-wrap .adm-center-popup-body .adm-modal-content {
   max-height: 100vh;
   overflow: visible;
 }
@@ -349,9 +352,7 @@ div.adm-tab-bar-wrap {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.global-checkbox-container
-  .adm-checkbox.adm-checkbox-checked
-  div.adm-checkbox-icon {
+.global-checkbox-container .adm-checkbox.adm-checkbox-checked div.adm-checkbox-icon {
   border-color: rgba(146, 144, 177, 0.6);
   color: #fbca04;
 }

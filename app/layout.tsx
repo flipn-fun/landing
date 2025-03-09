@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import WalletConnect from "./components/WalletConnect";
 import "./globals.css";
 import Landing from "./sections/landing";
 
@@ -29,12 +28,10 @@ export default function RootLayout() {
         />
         <link rel="manifest" href="/manifest.json" />
         <title>Fun</title>
-
+        <link rel="icon" href="/img/landing/logo.svg" />
       </head>
       <body>
-        <WalletConnect>
           <Landing />
-        </WalletConnect>
       </body>
     </html>
   );

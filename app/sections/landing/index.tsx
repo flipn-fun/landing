@@ -4,6 +4,7 @@ import styles from './Landing.module.css';
 import useWhiteList from './useWhiteList';
 import useUserAgent from './useUserAgent';
 import { useEffect, useMemo, useState } from 'react';
+import LazyImage from '@/app/components/LazyImage';
 const Landing = () => {
     const queryParams = urlFormat(typeof window === 'undefined' ? '' : window.location.href)
     const [address, setAddress] = useState('')
@@ -11,10 +12,10 @@ const Landing = () => {
     const { isJoined, joinWhiteList } = useWhiteList({ address });
     const { isMobile, innerHeight } = useUserAgent();
 
-    // const isError = useMemo(() => {
-    //     if (!address) return true;
-    //     return !/^[1-9A-Za-z]{32,44}$/.test(address);
-    // }, [address])
+    const isError = useMemo(() => {
+        if (!address) return true;
+        return !/^[1-9A-Za-z]{32,44}$/.test(address);
+    }, [address])
 
     useEffect(() => {
         if (queryParams['address']) {
@@ -31,21 +32,37 @@ const Landing = () => {
 
                 <div className={styles.left}>
                     <div className={styles.doorSection + " " + styles.mainPic}>
-                        <img src="/img/landing/pic1.gif" alt="Door illustration" />
+                        <LazyImage 
+                            src="/img/landing/pic1.gif"
+                            alt=""
+                            className="rounded-lg"
+                        />
                     </div>
 
                     <div className={styles.spinningLogo + " " + styles.mainPic}>
-                        <img src="/img/landing/pic3.gif" alt="Spinning logo" />
+                        <LazyImage 
+                            src="/img/landing/pic3.gif"
+                            alt="Spinning logo"
+                            className="rounded-lg"
+                        />
                     </div>
                 </div>
 
                 <div className={styles.middle}>
                     <div className={styles.frogSection + " " + styles.mainPic}>
-                        <img src="/img/landing/pic2.gif" alt="Frog illustration" />
+                        <LazyImage 
+                            src="/img/landing/pic2.gif"
+                            alt="Frog illustration"
+                            className="rounded-lg"
+                        />
                     </div>
 
                     <div className={styles.chartSection + " " + styles.mainPic}>
-                        <img src="/img/landing/pic4.gif" alt="Trading chart" />
+                        <LazyImage 
+                            src="/img/landing/pic4.gif"
+                            alt="Trading chart"
+                            className="rounded-lg"
+                        />
                     </div>
                 </div>
 
@@ -116,15 +133,27 @@ const Landing = () => {
                         }
 
                         <div className={styles.light1}>
-                            <img src="/img/landing/light1.svg" alt="Light 1" />
+                            <LazyImage 
+                                src="/img/landing/light1.svg"
+                                alt="Light 1"
+                                className="rounded-lg"
+                            />
                         </div>
 
                         <div className={styles.light2}>
-                            <img src="/img/landing/light2.svg" alt="Light 2" />
+                            <LazyImage 
+                                src="/img/landing/light2.svg"
+                                alt="Light 2"
+                                className="rounded-lg"
+                            />
                         </div>
 
                         <div className={styles.light3}>
-                            <img src="/img/landing/light3.svg" alt="Light 3" />
+                            <LazyImage 
+                                src="/img/landing/light3.svg"
+                                alt="Light 3"
+                                className="rounded-lg"
+                            />
                         </div>
                     </div>
 
@@ -154,17 +183,41 @@ const Landing = () => {
                                         gap: 10,
                                     }}
                                 >
-                                    <img src="/img/landing/pic1.gif" alt="Door illustration" style={{ width: '100vw', marginTop: 50, display: 'block', borderRadius: 16 }} />
-                                    <img src="/img/landing/pic3.gif" alt="Spinning logo" style={{ width: '100vw', display: 'block', borderRadius: 16, marginBottom: 50 }} />
-                                    <img src="/img/landing/pic2.gif" alt="Frog illustration" style={{ width: '100vw', marginTop: 50, display: 'block', borderRadius: 16 }} />
-                                    <img src="/img/landing/pic4.gif" alt="Trading chart" style={{ width: '100vw', display: 'block', borderRadius: 16, marginBottom: 50 }} />
+                                    <LazyImage 
+                                        src="/img/landing/pic1.gif"
+                                        alt="Door illustration"
+                                        className="rounded-lg"
+                                    />
+                                    <LazyImage 
+                                        src="/img/landing/pic3.gif"
+                                        alt="Spinning logo"
+                                        className="rounded-lg"
+                                    />
+                                    <LazyImage 
+                                        src="/img/landing/pic2.gif"
+                                        alt="Frog illustration"
+                                        className="rounded-lg"
+                                    />
+                                    <LazyImage 
+                                        src="/img/landing/pic4.gif"
+                                        alt="Trading chart"
+                                        className="rounded-lg"  
+                                    />
                                 </motion.div>
                             </motion.div>
                         )}
 
                     <div className={styles.featuresSection}>
-                        <img src="/img/landing/pc-text.png" alt="Features" className={styles.pcText} />
-                        <img src="/img/landing/mobile-text.png" alt="Features" className={styles.mobileText} />
+                        <LazyImage  
+                            src="/img/landing/pc-text.png"
+                            alt="Features"
+                            className="rounded-lg"
+                        />
+                        <LazyImage 
+                            src="/img/landing/mobile-text.png"
+                            alt="Features"
+                            className="rounded-lg"
+                        />
                     </div>
                 </div>
 
