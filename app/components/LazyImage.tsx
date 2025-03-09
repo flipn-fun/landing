@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const LazyImage = ({ src, alt, className }: { src: string, alt: string, className: string }) => {
+const LazyImage = ({ src, alt, className, style = {}}: { src: string, alt: string, className: string, style?: React.CSSProperties }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const imgRef = useRef<any>(null);
 
@@ -37,7 +37,8 @@ const LazyImage = ({ src, alt, className }: { src: string, alt: string, classNam
       ref={imgRef}
       alt={'FLipN'}
       style={{
-        transition: 'opacity 0.3s'
+        transition: 'opacity 0.3s',
+        ...style
       }}
       loading="lazy"
       className={className}

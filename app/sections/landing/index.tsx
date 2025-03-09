@@ -32,36 +32,48 @@ const Landing = () => {
 
                 <div className={styles.left}>
                     <div className={styles.doorSection + " " + styles.mainPic}>
-                        <LazyImage 
+                        <LazyImage
                             src="/img/landing/pic1.gif"
                             alt=""
                             className="rounded-lg"
+                            style={{
+                                borderRadius: 25
+                            }}
                         />
                     </div>
 
                     <div className={styles.spinningLogo + " " + styles.mainPic}>
-                        <LazyImage 
+                        <LazyImage
                             src="/img/landing/pic3.gif"
                             alt="Spinning logo"
                             className="rounded-lg"
+                            style={{
+                                borderRadius: 25
+                            }}
                         />
                     </div>
                 </div>
 
                 <div className={styles.middle}>
                     <div className={styles.frogSection + " " + styles.mainPic}>
-                        <LazyImage 
+                        <LazyImage
                             src="/img/landing/pic2.gif"
                             alt="Frog illustration"
                             className="rounded-lg"
+                            style={{
+                                borderRadius: 25
+                            }}
                         />
                     </div>
 
                     <div className={styles.chartSection + " " + styles.mainPic}>
-                        <LazyImage 
+                        <LazyImage
                             src="/img/landing/pic4.gif"
                             alt="Trading chart"
-                            className="rounded-lg"
+                            className="rounded-lg"  
+                            style={{
+                                borderRadius: 25
+                            }}  
                         />
                     </div>
                 </div>
@@ -98,8 +110,8 @@ const Landing = () => {
                                             You’ve asked for a waitlist, Follow us on X for the latest news
                                         </div>
                                     </div> : <button style={{ opacity: !address ? 0.5 : 1 }} className={styles.followButton} onClick={async () => {
-                                       
-                                       if (!address) {
+
+                                        if (!address) {
                                             return
                                         }
                                         joinWhiteList(address)
@@ -133,7 +145,7 @@ const Landing = () => {
                         }
 
                         <div className={styles.light1}>
-                            <LazyImage 
+                            <LazyImage
                                 src="/img/landing/light1.svg"
                                 alt="Light 1"
                                 className="rounded-lg"
@@ -141,7 +153,7 @@ const Landing = () => {
                         </div>
 
                         <div className={styles.light2}>
-                            <LazyImage 
+                            <LazyImage
                                 src="/img/landing/light2.svg"
                                 alt="Light 2"
                                 className="rounded-lg"
@@ -149,7 +161,7 @@ const Landing = () => {
                         </div>
 
                         <div className={styles.light3}>
-                            <LazyImage 
+                            <LazyImage
                                 src="/img/landing/light3.svg"
                                 alt="Light 3"
                                 className="rounded-lg"
@@ -183,41 +195,58 @@ const Landing = () => {
                                         gap: 10,
                                     }}
                                 >
-                                    <LazyImage 
+                                    <LazyImage
                                         src="/img/landing/pic1.gif"
                                         alt="Door illustration"
                                         className="rounded-lg"
+                                        style={{
+                                            marginTop: 25,
+                                            borderRadius: 25
+                                        }}
                                     />
-                                    <LazyImage 
+                                    <LazyImage
                                         src="/img/landing/pic3.gif"
                                         alt="Spinning logo"
                                         className="rounded-lg"
+                                        style={{
+                                            marginBottom: 25,
+                                            borderRadius: 25
+                                        }}
                                     />
-                                    <LazyImage 
+                                    <LazyImage
                                         src="/img/landing/pic2.gif"
                                         alt="Frog illustration"
                                         className="rounded-lg"
+                                        style={{
+                                            marginTop: 25,
+                                            borderRadius: 25
+                                        }}
                                     />
-                                    <LazyImage 
+                                    <LazyImage
                                         src="/img/landing/pic4.gif"
                                         alt="Trading chart"
-                                        className="rounded-lg"  
+                                        className="rounded-lg"
+                                        style={{
+                                            marginBottom: 25,
+                                            borderRadius: 25
+                                        }}  
                                     />
                                 </motion.div>
                             </motion.div>
                         )}
 
                     <div className={styles.featuresSection}>
-                        <LazyImage  
-                            src="/img/landing/pc-text.png"
-                            alt="Features"
-                            className="rounded-lg"
-                        />
-                        <LazyImage 
-                            src="/img/landing/mobile-text.png"
-                            alt="Features"
-                            className="rounded-lg"
-                        />
+                        {
+                            isMobile ? <LazyImage
+                                src="/img/landing/mobile-text.png"
+                                alt="Features"
+                                className="rounded-lg"
+                            /> : <LazyImage
+                                src="/img/landing/pc-text.png"
+                                alt="Features"
+                                className="rounded-lg"
+                            />
+                        }
                     </div>
                 </div>
 
