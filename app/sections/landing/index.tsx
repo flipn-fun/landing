@@ -1,13 +1,9 @@
 "use client"
-
 import { motion } from 'framer-motion';
 import styles from './Landing.module.css';
 import useWhiteList from './useWhiteList';
 import useUserAgent from './useUserAgent';
 import { useEffect, useMemo, useState } from 'react';
-
-
-
 const Landing = () => {
     const queryParams = urlFormat(typeof window === 'undefined' ? '' : window.location.href)
     const [address, setAddress] = useState('')
@@ -15,18 +11,16 @@ const Landing = () => {
     const { isJoined, joinWhiteList } = useWhiteList({ address });
     const { isMobile, innerHeight } = useUserAgent();
 
-    const isError = useMemo(() => {
-        if (!address) return true;
-        return !/^[1-9A-Za-z]{32,44}$/.test(address);
-    }, [address])
+    // const isError = useMemo(() => {
+    //     if (!address) return true;
+    //     return !/^[1-9A-Za-z]{32,44}$/.test(address);
+    // }, [address])
 
     useEffect(() => {
         if (queryParams['address']) {
             setAddress(queryParams['address'])
         }
     }, [])
-
-
 
     return (
         <div style={{ height: innerHeight, overflow: 'auto' }}>
@@ -81,14 +75,14 @@ const Landing = () => {
                                     </div> */}
                                 </div>
                                 {
-                                    isJoined && !isError ? <div className={styles.tipWrapper}>
+                                    isJoined && address ? <div className={styles.tipWrapper}>
                                         <img src="/img/landing/tip.svg" />
                                         <div className={styles.followedTip}>
                                             You’ve asked for a waitlist, Follow us on X for the latest news
                                         </div>
-                                    </div> : <button style={{ opacity: isError ? 0.5 : 1 }} className={styles.followButton} onClick={async () => {
+                                    </div> : <button style={{ opacity: !address ? 0.5 : 1 }} className={styles.followButton} onClick={async () => {
                                        
-                                       if (isError) {
+                                       if (!address) {
                                             return
                                         }
                                         joinWhiteList(address)
