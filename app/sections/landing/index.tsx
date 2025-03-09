@@ -180,8 +180,12 @@ const Landing = () => {
                         <img className={styles.footerIcon} onClick={() => {
                             window.open("https://docs.flipn.fun/", '_blank')
                         }} src="/img/landing/gitbook.svg" alt="X" />
-                        <img className={styles.footerIcon} src="/img/landing/x.svg" alt="X" />
-                        <img className={styles.footerIcon} src="/img/landing/telegram.svg" alt="Telegram" />
+                        <img onClick={() => {
+                            window.open("https://x.com/flipndotfun", '_blank')
+                        }} className={styles.footerIcon} src="/img/landing/x.svg" alt="X" />
+                        <img onClick={() => {
+                            window.open("https://t.me/flipndotfun", '_blank')
+                        }} className={styles.footerIcon} src="/img/landing/telegram.svg" alt="Telegram" />
                     </div>
                 </div>
             </div>
