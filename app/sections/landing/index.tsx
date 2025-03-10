@@ -104,14 +104,14 @@ const Landing = () => {
                                     </div> */}
                                 </div>
                                 {
-                                    isJoined && address ? <div className={styles.tipWrapper}>
+                                    isJoined && !isError ? <div className={styles.tipWrapper}>
                                         <img src="/img/landing/tip.svg" />
                                         <div className={styles.followedTip}>
                                             You’ve asked for a waitlist, Follow us on X for the latest news
                                         </div>
-                                    </div> : <button style={{ opacity: !address ? 0.5 : 1 }} className={styles.followButton} onClick={async () => {
+                                    </div> : <button style={{ opacity: isError ? 0.5 : 1 }} className={styles.followButton} onClick={async () => {
 
-                                        if (!address) {
+                                        if (isError) {
                                             return
                                         }
                                         joinWhiteList(address)
