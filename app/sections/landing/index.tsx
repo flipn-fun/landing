@@ -33,7 +33,7 @@ const Landing = () => {
                 <div className={styles.left}>
                     <div className={styles.doorSection + " " + styles.mainPic}>
                         <LazyImage
-                            src="/img/landing/pic1.gif"
+                            src="https://flipn.s3.amazonaws.com/flipn/dev/GoSxp.gif"
                             alt=""
                             className="rounded-lg"
                             style={{
@@ -44,7 +44,7 @@ const Landing = () => {
 
                     <div className={styles.spinningLogo + " " + styles.mainPic}>
                         <LazyImage
-                            src="/img/landing/pic3.gif"
+                            src="https://flipn.s3.amazonaws.com/flipn/dev/mAKCJ.gif"
                             alt="Spinning logo"
                             className="rounded-lg"
                             style={{
@@ -57,7 +57,7 @@ const Landing = () => {
                 <div className={styles.middle}>
                     <div className={styles.frogSection + " " + styles.mainPic}>
                         <LazyImage
-                            src="/img/landing/pic2.gif"
+                            src="https://flipn.s3.amazonaws.com/flipn/dev/TIgo2.gif"
                             alt="Frog illustration"
                             className="rounded-lg"
                             style={{
@@ -68,7 +68,7 @@ const Landing = () => {
 
                     <div className={styles.chartSection + " " + styles.mainPic}>
                         <LazyImage
-                            src="/img/landing/pic4.gif"
+                            src="https://flipn.s3.amazonaws.com/flipn/dev/npuCg.gif"
                             alt="Trading chart"
                             className="rounded-lg"  
                             style={{
@@ -196,7 +196,7 @@ const Landing = () => {
                                     }}
                                 >
                                     <LazyImage
-                                        src="/img/landing/pic1.gif"
+                                        src="https://flipn.s3.amazonaws.com/flipn/dev/GoSxp.gif"
                                         alt="Door illustration"
                                         className="rounded-lg"
                                         style={{
@@ -205,7 +205,7 @@ const Landing = () => {
                                         }}
                                     />
                                     <LazyImage
-                                        src="/img/landing/pic3.gif"
+                                        src="https://flipn.s3.amazonaws.com/flipn/dev/mAKCJ.gif"
                                         alt="Spinning logo"
                                         className="rounded-lg"
                                         style={{
@@ -214,7 +214,7 @@ const Landing = () => {
                                         }}
                                     />
                                     <LazyImage
-                                        src="/img/landing/pic2.gif"
+                                        src="https://flipn.s3.amazonaws.com/flipn/dev/TIgo2.gif"
                                         alt="Frog illustration"
                                         className="rounded-lg"
                                         style={{
@@ -223,7 +223,7 @@ const Landing = () => {
                                         }}
                                     />
                                     <LazyImage
-                                        src="/img/landing/pic4.gif"
+                                        src="https://flipn.s3.amazonaws.com/flipn/dev/npuCg.gif"
                                         alt="Trading chart"
                                         className="rounded-lg"
                                         style={{
