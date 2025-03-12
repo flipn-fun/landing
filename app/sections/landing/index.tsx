@@ -86,7 +86,7 @@ const Landing = () => {
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <p className={styles.heroDesc}>Trade and launch memecoins as easy as scrolling Tiktok. Coming soon to Solana.</p>
+                            <p className={styles.heroDesc}>Trade and launch memecoins as easy as scrolling Tiktok.</p>
                         </motion.div>
 
                         {
@@ -124,7 +124,7 @@ const Landing = () => {
                                         );
 
 
-                                    }}>Join Waitlist for the earliest token launches.</button>
+                                    }}>Launch Beta</button>
                                 }
                             </div>
 
