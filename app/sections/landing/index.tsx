@@ -8,6 +8,7 @@ import LazyImage from '@/app/components/LazyImage';
 const Landing = () => {
     const queryParams = urlFormat(typeof window === 'undefined' ? '' : window.location.href)
     const [address, setAddress] = useState('')
+    
 
     const { isJoined, joinWhiteList } = useWhiteList({ address });
     const { isMobile, innerHeight } = useUserAgent();
